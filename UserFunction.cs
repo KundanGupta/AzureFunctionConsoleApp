@@ -5,19 +5,19 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureFunctionConsoleApp;
 
-public class Function1
+public class UserFunction
 {
-    private readonly ILogger<Function1> _logger;
+    private readonly ILogger<UserFunction> _logger;
 
-    public Function1(ILogger<Function1> logger)
+    public UserFunction(ILogger<UserFunction> logger)
     {
         _logger = logger;
     }
 
-    [Function("Function1")]
+    [Function("GetUserInfo")]
     public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
-        return new OkObjectResult("Welcome to Azure Functions!");
+        return new OkObjectResult("Return GetUserInfo Details...");
     }
 }
